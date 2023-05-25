@@ -1,8 +1,9 @@
 
 <div class="max-w-4xl mx-auto mt-2">
-<x-notifications.notify />
+
     <div class="px-4 sm:px-6 lg:px-8">
         <div class="sm:flex sm:items-center">
+            <x-notifications.notify />
             <div class="sm:flex-auto">
                 <h1 class="text-xl font-semibold text-orange-900">Item Group</h1>
                 <p class="mt-2 text-sm text-orange-700">A list of all Item Groups.</p>
@@ -11,7 +12,7 @@
                 <button wire:click="create()"
                         class="inline-flex items-center justify-center rounded-md border border-transparent bg-orange-700 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-orange-900 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2 sm:w-auto">
                     Add Item Group
-</button>
+                </button>
             </div>
         </div>
         <div class="flex-col sapce-y-4">
@@ -61,16 +62,16 @@
                             @endforeach
                             </tbody>
                         </table>
-                        
+                        <div class="mt-2 bg-yellow-200">
+                     {{$itemGroup->links()}}
                     </div>
-                   
+                    </div>
+                    
                 </div>
             </div>
            
         </div>
-        <div class="mt-2 bg-yellow-200">
-        {{$itemGroup->links()}}
-        </div>
+       
     </div>
     @if($isOpen)
         <div class="fixed z-100 w-full h-full bg-gray-500 opacity-75 top-0 left-0"></div>
@@ -91,7 +92,7 @@
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Item Group Name</label>
                 <input type="text"
                         wire:model="group_name" 
-                        class="bg-orange-200 border bg-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-200"
+                        class="bg-orange-200 border bg-orange-200 text-gray-900 text-sm rounded-lg focus:ring-orange-200 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-200 dark:focus:border-orange-200"
                        placeholder=""
                        required="">
                 @error('group_name') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
