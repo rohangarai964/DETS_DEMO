@@ -69,7 +69,7 @@ public function mount(){
     }
     public function store()
     {
-        $cred=session()->get('login_data');
+        // $cred=session()->get('login_data');
         $this->validate([
             'item_name' => 'required',
             'item_group_id' => 'required',
@@ -83,7 +83,7 @@ public function mount(){
             'description' => $this->description,
             
         );
-        $items = Item::updateOrCreate(['id' => $this->item_id],$data);
+        $Items = Item::updateOrCreate(['id' => $this->item_id],$data);
         $this->dispatchBrowserEvent('notify', 'Item GroupUpdated Successfull');
         $this->closeModal();
         $this->resetInputFields();

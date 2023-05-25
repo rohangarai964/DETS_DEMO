@@ -21,7 +21,10 @@ class Users extends Component
     public $passwordConfirmation;
    
     use WithPagination;
+  
+    public function mount(){
 
+}
     public function render()
     {
         $perPage = 5;

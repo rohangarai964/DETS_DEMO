@@ -19,6 +19,7 @@ class Dashboard extends Component
     }
     public function render()
     {
+        
         $perPage = 5;
         if(Auth::user()->role){
             $collection = Expenditure::select('users.name','expenditures.exp_date','expenditures.qty','items.item_name','items.item_price')->join('items', 'items.id', '=', 'expenditures.item_id')->join('users','users.id','=','expenditures.user_id')->orderBy('users.id')->get();
